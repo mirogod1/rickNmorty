@@ -1,11 +1,11 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
-import CharacterList from "../views/CharacterList.vue";
+import CharactersView from "../views/CharactersView.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
     name: "CharactersList",
-    component: CharacterList,
+    component: CharactersView,
   },
   // {
   //   path: "/about",
