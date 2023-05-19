@@ -13,7 +13,7 @@ import { useCharactersListStorage } from "@/stores/CharactersListStorage";
 const characterStore = useCharactersListStorage();
 const { setListResult } = characterStore;
 
-onMounted(() => {
-  setListResult();
+onMounted(async () => {
+  await setListResult();
 })
 </script>
