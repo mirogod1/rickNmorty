@@ -556,6 +556,22 @@ video {
   }
 }
 
+.sticky {
+  position: sticky;
+}
+
+.top-2 {
+  top: 0.5rem;
+}
+
+.float-right {
+  float: right;
+}
+
+.float-left {
+  float: left;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -585,6 +601,10 @@ video {
   height: 8rem;
 }
 
+.h-6 {
+  height: 1.5rem;
+}
+
 .max-h-44 {
   max-height: 11rem;
 }
@@ -595,6 +615,14 @@ video {
 
 .w-4\/5 {
   width: 80%;
+}
+
+.w-52 {
+  width: 13rem;
+}
+
+.w-6 {
+  width: 1.5rem;
 }
 
 .w-full {
@@ -689,4 +717,9 @@ video {
 .text-slate-200 {
   --tw-text-opacity: 1;
   color: rgb(226 232 240 / var(--tw-text-opacity));
+}
+
+.text-slate-400 {
+  --tw-text-opacity: 1;
+  color: rgb(148 163 184 / var(--tw-text-opacity));
 }

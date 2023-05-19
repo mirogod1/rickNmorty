@@ -1,15 +1,16 @@
+import CharacterListModel from "@/models/CharacterListModel";
 import { ref, toRaw } from "vue";
-const characters = ref([]);
+const characters = ref<CharacterListModel>();
 const error = ref(null);
 const getCharacters = () => {
-  const load = async () => {
+  const load = async (url = "https://rickandmortyapi.com/api/character/?page=1") => {
     try {
-      const data = await fetch("https://rickandmortyapi.com/api/character");
+      const data = await fetch(url);
       if(!data.ok){
         throw Error("error");
       }
       data.json().then(jsonData => {
-        characters.value = jsonData.results;
+        characters.value = jsonData;
       })
     }
     catch(e: any){
