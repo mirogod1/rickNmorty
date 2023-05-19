@@ -13,9 +13,7 @@
         <div class="mb-5">
           <select name="status" class="border-b-2 border-black-600 w-full" v-model="statusSearch">
             <option value="" class="text-slate-400" disabled selected>search by status</option>
-            <option value="alive">Alive</option>
-            <option value="dead">Dead</option>
-            <option value="unknown">Unknown</option>
+            <option v-for="option in options" :key="option">{{ option }}</option>
           </select>
         </div>
         <button class="w-2/5 bg-sky-500 text-slate-200 rounded" @click="resetSearch()">Reset</button>
@@ -36,7 +34,7 @@ import { computed, ref, watchEffect } from 'vue';
 import { useSearchStore } from '@/stores/SearchStorage';
 import { useCharactersListStorage } from '@/stores/CharactersListStorage';
 import { storeToRefs } from 'pinia';
-import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/vue/20/solid';
+import { ChevronLeftIcon, ChevronRightIcon, FingerPrintIcon } from '@heroicons/vue/20/solid';
 
 const nameSearch = ref("");
 const statusSearch = ref("");
@@ -67,5 +65,9 @@ const loadPage = (url: any) => {
 }
 const characterPageInfo = computed(() => {
   return charactersList?.value?.info;
+})
+
+const options = computed(() => {
+  return Array.from(new Set(charactersList?.value.results?.map(x => x.status)));
 })
 </script>
