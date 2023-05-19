@@ -1,6 +1,6 @@
 <template>
   <div class="flex-col flex directionw-1/5 w-52">
-    <div class="sticky top-2">
+    <div class="fixed">
       <div class="bg-teal-50 border-2 border-black-600 p-4 max-h-44 mb-5">
         <h3 class="text-xl mb-2">Search</h3>
         <div>
@@ -8,10 +8,11 @@
             class="border-b-2 border-black-600 w-full mb-2"
             type="text"
             placeholder="search by name"
+            @input="search()"
             v-model="nameSearch" />
         </div>
         <div class="mb-5">
-          <select name="status" class="border-b-2 border-black-600 w-full" v-model="statusSearch">
+          <select name="status" class="border-b-2 border-black-600 w-full" v-model="statusSearch" @change="search()">
             <option value="" class="text-slate-400" disabled selected>search by status</option>
             <!-- <option v-for="option in options" :key="option">{{ option }}</option> -->
             <option>All</option>
@@ -20,7 +21,7 @@
             <option>unknown</option>
           </select>
         </div>
-        <button class="w-2/5 bg-sky-500 text-slate-200 rounded" @click="search()">Search</button>
+        <!-- <button class="w-2/5 bg-sky-500 text-slate-200 rounded" @click="search()">Search</button> -->
         <button class="w-2/5 bg-sky-500 text-slate-200 rounded" @click="resetSearch()">Reset</button>
       </div>
       <p>page {{ pageNumber }} of {{ characterPageInfo?.pages }}</p>
