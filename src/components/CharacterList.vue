@@ -13,21 +13,15 @@
 </template>
 <script lang="ts" setup>
 import CharacterItem from "./CharacterItem.vue";
-import Character from "@/models/CharacterModel";
-import { PropType, computed } from "vue";
+import { computed } from "vue";
 import { useCharactersListStorage } from "@/stores/CharactersListStorage";
-
 import { storeToRefs } from "pinia";
 
 const charactersListStore = useCharactersListStorage();
 
-const { charactersList, error } = storeToRefs(charactersListStore);
+const { charactersList } = storeToRefs(charactersListStore);
 
 const characters = computed(() => {
   return charactersList?.value.results;
-})
-
-// const props = defineProps({
-//   charactersList: { type: Array as PropType<Character[]>, default: () => { return Array<Character>() } },
-// });
+});
 </script>

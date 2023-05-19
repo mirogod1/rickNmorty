@@ -36,14 +36,10 @@ import { computed, ref, watchEffect } from 'vue';
 import { useSearchStore } from '@/stores/SearchStorage';
 import { useCharactersListStorage } from '@/stores/CharactersListStorage';
 import { storeToRefs } from 'pinia';
-import CharacterListInfoModel from '@/models/CharacterListInfoModel';
-import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/vue/20/solid'
+import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/vue/20/solid';
 
-
-
-//const emits = defineEmits(['filterChanged', 'loadPage'])
 const nameSearch = ref("");
-const statusSearch = ref("")
+const statusSearch = ref("");
 
 const searchStore = useSearchStore();
 const { setFilter } = searchStore;
@@ -54,22 +50,22 @@ const { setListResult } = charactersListStore;
 const { charactersList, error } = storeToRefs(charactersListStore);
 
 watchEffect(() => {
-  setFilter(name.value, status.value)
-})
+  setFilter(name.value, status.value);
+});
 const resetSearch = () => {
   nameSearch.value = name.value = "";
-  statusSearch.value = status.value = ""
+  statusSearch.value = status.value = "";
 }
 const pageNumber = computed(() => {
-  const t = new URLSearchParams(characterPageInfo?.value?.next?.split("?")[1])
+  const t = new URLSearchParams(characterPageInfo?.value?.next?.split("?")[1]);
   console.log(t.get("page"));
   const sumPages = characterPageInfo?.value?.pages;
-  return t?.get("page") ? Number(t.get("page")) - 1 : sumPages
+  return t?.get("page") ? Number(t.get("page")) - 1 : sumPages;
 })
 const loadPage = (url: any) => {
-  setListResult(url)
+  setListResult(url);
 }
 const characterPageInfo = computed(() => {
-  return charactersList?.value?.info
+  return charactersList?.value?.info;
 })
 </script>
