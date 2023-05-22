@@ -594,6 +594,10 @@ video {
   max-height: 11rem;
 }
 
+.w-1\/2 {
+  width: 50%;
+}
+
 .w-2\/5 {
   width: 40%;
 }
@@ -750,8 +754,12 @@ video {
 }
 
 @media (min-width: 640px) {
-  .sm\:w-3\/6 {
-    width: 50%;
+  .sm\:w-1\/5 {
+    width: 20%;
+  }
+
+  .sm\:flex-row {
+    flex-direction: row;
   }
 }
 
@@ -760,8 +768,16 @@ video {
     position: sticky;
   }
 
+  .md\:w-2\/5 {
+    width: 40%;
+  }
+
   .md\:w-4\/5 {
     width: 80%;
+  }
+
+  .md\:max-w-md {
+    max-width: 28rem;
   }
 
   .md\:flex-row {

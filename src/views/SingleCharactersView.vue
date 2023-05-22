@@ -5,8 +5,10 @@
       Back
     </button>
 
-    <div class="flex flex-col md:flex-row md:justify-around gap-5 " v-if="character">
-      <img :src="character.image">
+    <div class="flex flex-col sm:flex-row md:justify-around gap-5 " v-if="character">
+      <div class="w-1/2 md:w-2/5 md:max-w-md">
+        <img :src="character.image">
+      </div>
       <div class="w-4/5">
         <h1 class="text-4xl">
           {{ character.name }}
