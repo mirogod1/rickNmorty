@@ -1,19 +1,19 @@
 <template>
-  <div class="px-24">
-    <button @click="$router.go(-1)" class="w-1/5 h-20 bg-sky-500 text-slate-200 rounded mb-5">
+  <div class="p-2 md:px-24">
+    <button @click="$router.go(-1)" class="w-full sm:w-1/5 h-20 bg-sky-500 text-slate-200 rounded mb-5">
       <ChevronLeftIcon class="h-6 w-6 float-left" aria-hidden="true" />
       Back
     </button>
 
-    <div class="flex justify-around gap-5 " v-if="character">
-      <img :src="character.image" class="w-1/5">
+    <div class="flex flex-col md:flex-row md:justify-around gap-5 " v-if="character">
+      <img :src="character.image">
       <div class="w-4/5">
         <h1 class="text-4xl">
           {{ character.name }}
         </h1>
         <ul>
           <li>
-            Species: {{ character.species }}
+            species: {{ character.species }}
           </li>
           <li>
             gender: {{ character.gender }}
