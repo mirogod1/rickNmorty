@@ -1,6 +1,6 @@
 <template>
-  <div class="w-4/5 border-2 border-black-800 p-4 bg-teal-50">
-    <h3 class="text-xl">Characters list</h3>
+  <div class="md:w-4/5 border-2 border-black-800 md:p-4 bg-teal-50">
+    <h3 class="text-xl p-4 md:p-0">Characters list</h3>
     <div v-if="characters?.length > 0">
       <div v-for="item in characters" :key="item.id" class="flex">
 

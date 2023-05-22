@@ -1,6 +1,6 @@
 <template>
   <div class="flex-col flex directionw-1/5 w-52">
-    <div class="fixed">
+    <div class="lg:fixed">
       <div class="bg-teal-50 border-2 border-black-600 p-4 max-h-44 mb-5">
         <h3 class="text-xl mb-2">Search</h3>
         <div>

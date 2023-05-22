@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-center gap-5 px-24">
+  <div class="px-2 flex justify-center flex-col lg:justify-around md:flex-row md:gap-10 gap-5">
     <SearchBox></SearchBox>
     <CharacterList></CharacterList>
   </div>
