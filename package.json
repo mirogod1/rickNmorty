@@ -10,12 +10,14 @@
     "build-css": "tailwindcss build src/main.css -o public/main.css"
   },
   "dependencies": {
+    "@heroicons/vue": "^2.0.18",
     "core-js": "^3.8.3",
     "pinia": "^2.0.36",
     "vue": "^3.2.13",
     "vue-router": "^4.0.3"
   },
   "devDependencies": {
+    "@babel/eslint-parser": "^7.21.8",
     "@typescript-eslint/eslint-plugin": "^5.4.0",
     "@typescript-eslint/parser": "^5.4.0",
     "@vue/cli-plugin-babel": "~5.0.0",

@@ -1,19 +1,20 @@
-import Character from "@/models/CharacterModel";
-import { ref } from "vue";
+import CharacterListModel from "@/models/CharacterListModel";
+import { ref, toRaw } from "vue";
+const characters = ref<CharacterListModel>();
+const error = ref(null);
 const getCharacters = () => {
-  const characters = ref(Array<Character>());
-  const error = ref(null);
-
-  const load = async () => {
+  const load = async (url = "https://rickandmortyapi.com/api/character/?page=1") => {
     try {
-      const data = await fetch("https://rickandmortyapi.com/api/character");
-      if (!data.ok) {
-        throw Error("no data found");
+      const data = await fetch(url);
+      if(!data.ok){
+        throw Error("error");
       }
-      characters.value = (await data.json()).results;
-      console.log(characters.value);
-    } catch (e: unknown) {
-      console.log(e);
+      data.json().then(jsonData => {
+        characters.value = jsonData;
+      })
+    }
+    catch(e: any){
+      error.value = e.message
     }
   };
   return { characters, error, load };

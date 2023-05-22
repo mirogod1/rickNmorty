@@ -1,14 +1,19 @@
 <template>
-  <h1>Rick and Morty Characters</h1>
-  <ul>
-    <li v-for="item in characters" :key="item.id">
-      {{ item.name }} {{ item.species }} {{ item.status }}
-    </li>
-  </ul>
+  <div class="flex justify-center gap-5 px-24">
+    <SearchBox></SearchBox>
+    <CharacterList></CharacterList>
+  </div>
 </template>
 <script lang="ts" setup>
-import Character from "@/models/CharacterModel";
-import getCharacters from "@/composables/getCharacters";
-const { characters, error, load } = getCharacters();
-load();
+import { onMounted } from "vue";
+import CharacterList from "@/components/CharacterList.vue";
+import SearchBox from "@/components/SearchBox.vue";
+import { useCharactersListStorage } from "@/stores/CharactersListStorage";
+
+const characterStore = useCharactersListStorage();
+const { setListResult } = characterStore;
+
+onMounted(async () => {
+  await setListResult();
+})
 </script>
