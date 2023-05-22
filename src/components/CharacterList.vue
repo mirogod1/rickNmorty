@@ -3,7 +3,9 @@
     <h3 class="text-xl">Characters list</h3>
     <div v-if="characters?.length > 0">
       <div v-for="item in characters" :key="item.id" class="flex">
+
         <CharacterItem :item="item"></CharacterItem>
+
       </div>
     </div>
     <div v-else>
@@ -19,7 +21,7 @@ import { storeToRefs } from "pinia";
 
 const charactersListStore = useCharactersListStorage();
 
-const { charactersList } = storeToRefs(charactersListStore);
+const { charactersList, error } = storeToRefs(charactersListStore);
 
 const characters = computed(() => {
   return charactersList?.value.results;
